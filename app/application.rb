@@ -13,6 +13,11 @@ class Application
       end
     elsif req.path.match(/cart/)
       @@cart
+    elsif req.path.match(/add/)
+      new_item = req.params["item"]
+      if @@items.include?(new_item)
+        @@cart << new_item
+      end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
