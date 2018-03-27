@@ -17,7 +17,6 @@ class Application
       else
         @@cart
       end
-      
     elsif req.path.match(/add/)
       new_item = req.params["item"]
       if @@items.include?(new_item)
